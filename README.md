@@ -1,5 +1,7 @@
 # MacBook Pro as external display
 
+**Web page:** https://marko-macbook-pro-as-external-display.pages.dev (the schematic of the whole system and the Amazon.de links)
+
 Use the MacBook Pro as an external display. Started 21.10.2026. The receiver is the MacBook Pro 14" (M1 Pro); no port on it takes a picture in, so the picture comes in as a stream or through a USB capture card.
 
 Open **PLAN.md** for the plan and its holes, **SHOPPING.md** for what to buy, TAKEOVER.md for where it stands.
