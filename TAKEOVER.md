@@ -2,4 +2,6 @@
 
 Where the work stands, for the next session.
 
-- 21.10.2026: repository created, public. Next: Marko says which Mac or machine drives the MacBook Pro as its screen, then choose the way (Sidecar-like over Wi-Fi/cable, a capture card, or a streaming app).
+- **State (21.10.2026):** plan only, no code. PLAN.md holds four ways: A AirPlay to Mac, B a USB HDMI capture card + a Swift viewer, C Sunshine/Moonlight or Deskreen, D our own Swift sender and receiver over a Thunderbolt cable.
+- **Waiting for Marko:** which machine sends its picture, and mirror or extend.
+- **Next:** step 1 of PLAN.md, a five-minute test with A or C, then choose.
