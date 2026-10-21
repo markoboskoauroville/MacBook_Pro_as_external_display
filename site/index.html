@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MacBook Pro as external display</title>
+<meta name="description" content="A 16-inch MacBook Pro gets a second screen: the 14-inch MacBook Pro, over one Thunderbolt cable and a USB-C dummy plug. The schematic and what to buy on Amazon.de.">
+<style>
+  :root {
+    --ground: #12161C;
+    --card: #1B2028;
+    --raised: #2C323A;
+    --line: #333A44;
+    --text: #EDEFF2;
+    --dim: #9AA3AE;
+    --amber: #E8A64B;
+    --amber-ink: #1A1408;
+    --green: #34D399;
+    --red: #EF4444;
+    --blue: #60A5FA;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--ground); color: var(--text); }
+  body { font: 17px/1.55 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif; }
+  a { color: var(--amber); }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 40px 0 8px; }
+  .kicker { color: var(--amber); font-weight: 600; letter-spacing: .08em; text-transform: uppercase; font-size: 13px; }
+  h1 { font-size: clamp(30px, 5vw, 48px); line-height: 1.1; margin: 8px 0 12px; }
+  h2 { font-size: 26px; margin: 56px 0 6px; }
+  h2 .n { color: var(--amber); margin-right: 8px; }
+  .lead { color: var(--dim); font-size: 19px; max-width: 760px; margin: 0; }
+  .sub { color: var(--dim); margin: 0 0 18px; max-width: 760px; }
+  .action {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--amber); color: var(--amber-ink); font-weight: 700; text-decoration: none;
+    padding: 14px 22px; border-radius: 12px; font-size: 18px;
+  }
+  .action svg { width: 22px; height: 22px; }
+  .quiet { color: var(--amber); text-decoration: none; font-weight: 600; }
+  .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 18px; margin: 24px 0 8px; }
+  .total { color: var(--dim); }
+  .total b { color: var(--text); }
+  figure { margin: 18px 0 0; }
+  figure img { width: 100%; height: auto; display: block; border-radius: 16px; border: 1px solid var(--line); }
+  figcaption { color: var(--dim); font-size: 14px; margin-top: 8px; }
+
+  .shop { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-top: 18px; }
+  .item { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 16px; display: flex; flex-direction: column; }
+  .item .pic { background: #fff; border-radius: 12px; aspect-ratio: 4 / 3; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  .item .pic img { max-width: 88%; max-height: 88%; object-fit: contain; }
+  .tag { display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; padding: 3px 8px; border-radius: 6px; margin: 14px 0 6px; align-self: flex-start; }
+  .tag.must { background: var(--amber); color: var(--amber-ink); }
+  .tag.alt { background: var(--raised); color: var(--text); }
+  .tag.opt { background: transparent; color: var(--dim); border: 1px solid var(--line); }
+  .item h3 { font-size: 18px; margin: 0 0 6px; line-height: 1.3; }
+  .item p { color: var(--dim); margin: 0 0 12px; font-size: 15px; }
+  .item .price { font-size: 24px; font-weight: 700; margin-top: auto; }
+  .item .buy { margin-top: 10px; display: inline-flex; gap: 6px; align-items: center; }
+  .asin { color: var(--dim); font-size: 12px; font-family: ui-monospace, Menlo, monospace; }
+
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 20px; margin-top: 18px; }
+  .ports svg { width: 100%; height: auto; display: block; }
+
+  .holes { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 12px; margin-top: 18px; }
+  .hole { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px; }
+  .hole b { display: block; margin-bottom: 4px; }
+  .hole span { color: var(--dim); font-size: 15px; }
+  .hole.ok b::before { content: "✓ "; color: var(--green); }
+
+  ol.steps { counter-reset: s; list-style: none; padding: 0; margin: 18px 0 0; display: grid; gap: 12px; }
+  ol.steps li { counter-increment: s; background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px 14px 60px; position: relative; }
+  ol.steps li::before { content: counter(s); position: absolute; left: 16px; top: 13px; width: 30px; height: 30px; border-radius: 50%; background: var(--raised); color: var(--amber); font-weight: 700; display: flex; align-items: center; justify-content: center; }
+  ol.steps li b { display: block; }
+  ol.steps li span { color: var(--dim); font-size: 15px; }
+
+  footer { color: var(--dim); font-size: 14px; padding: 56px 0 40px; border-top: 1px solid var(--line); margin-top: 56px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="kicker">Plan · 21.10.2026</div>
+  <h1>MacBook Pro as external display</h1>
+  <p class="lead">The 16-inch MacBook Pro gets a second screen: the 14-inch MacBook Pro beside it. One USB-C dummy plug makes macOS see a real second monitor. One Thunderbolt cable carries its picture across, and a Swift app shows it full screen.</p>
+  <div class="actions">
+    <a class="action" href="#shop">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6h11M9 12h11M9 18h11"/><circle cx="4" cy="6" r="1"/><circle cx="4" cy="12" r="1"/><circle cx="4" cy="18" r="1"/></svg>
+      Shopping list
+    </a>
+    <span class="total">Dummy plug + Thunderbolt 4 cable: <b>€48.93</b></span>
+  </div>
+</header>
+
+<figure>
+  <img src="img/system.jpg" alt="The 16-inch MacBook Pro with a USB-C dummy plug, joined by a glowing Thunderbolt 4 cable to the 14-inch MacBook Pro, which shows its second desktop; the BenQ stands behind the 14-inch." width="1376" height="768">
+  <figcaption>The whole system. Drawn with Nano Banana Pro in Gemini.</figcaption>
+</figure>
+
+<h2 id="shop"><span class="n">1</span>Shopping list</h2>
+<p class="sub">Checked on amazon.de on 21.10.2026: the resolution tables on the product pages, the prices and the stock. Prices change, so each link shows today's price.</p>
+
+<div class="shop">
+  <div class="item">
+    <div class="pic"><img src="https://m.media-amazon.com/images/I/51l7V8XvSLL._SL500_.jpg" alt="USB-C dummy display plug" loading="lazy"></div>
+    <span class="tag must">Must have</span>
+    <h3>USB-C dummy display plug (EDID emulator)</h3>
+    <p>Goes into a USB-C port on the 16-inch. Its table lists <b>2880 × 1800 @ 60 Hz</b> and <b>2560 × 1600 @ 60 Hz</b>. Both are 16:10, the same shape as the 14-inch screen under its notch (3024 × 1890), so there are no black bars.</p>
+    <div class="price">€14.28</div>
+    <a class="quiet buy" href="https://www.amazon.de/dp/B0FCDJG6SW" target="_blank" rel="noopener">Open on Amazon.de ›</a>
+    <span class="asin">B0FCDJG6SW</span>
+  </div>
+
+  <div class="item">
+    <div class="pic"><img src="https://m.media-amazon.com/images/I/61v35QsX5jL._SL500_.jpg" alt="Cable Matters Thunderbolt 4 cable" loading="lazy"></div>
+    <span class="tag must">Must have</span>
+    <h3>Cable Matters Thunderbolt 4 cable, 0.8 m, Intel-certified</h3>
+    <p>40 Gbps. Plugged between the two Macs, it becomes the Thunderbolt Bridge, a private network with almost no delay. It must be a Thunderbolt cable: a USB-C charging cable makes no network.</p>
+    <div class="price">€34.65</div>
+    <a class="quiet buy" href="https://www.amazon.de/dp/B08KSM2FWR" target="_blank" rel="noopener">Open on Amazon.de ›</a>
+    <span class="asin">B08KSM2FWR</span>
+  </div>
+
+  <div class="item">
+    <div class="pic"><img src="https://m.media-amazon.com/images/I/61kaBHjCHtL._SL500_.jpg" alt="USB4 40 Gbps cable" loading="lazy"></div>
+    <span class="tag alt">Cheaper choice</span>
+    <h3>USB4 40 Gbps cable, 0.8 m, USB-IF certified</h3>
+    <p>Instead of the Cable Matters cable. USB4 at 40 Gbps carries Thunderbolt between Apple-silicon Macs, but it has no Intel certification. If the bridge does not appear, this is the first suspect.</p>
+    <div class="price">€13.65</div>
+    <a class="quiet buy" href="https://www.amazon.de/dp/B09LV3S9DH" target="_blank" rel="noopener">Open on Amazon.de ›</a>
+    <span class="asin">B09LV3S9DH</span>
+  </div>
+
+  <div class="item">
+    <div class="pic"><img src="https://m.media-amazon.com/images/I/61cvp6TvJ0L._AC_SL500_.jpg" alt="BENFEI USB-C to HDMI adapter" loading="lazy"></div>
+    <span class="tag opt">Only if needed</span>
+    <h3>BENFEI USB-C to HDMI adapter, 4K60</h3>
+    <p>Not needed for the plan. It is only for keeping the Nano plugged in when the 16-inch's own HDMI port is busy.</p>
+    <div class="price">€7.34</div>
+    <a class="quiet buy" href="https://www.amazon.de/dp/B08KWG243P" target="_blank" rel="noopener">Open on Amazon.de ›</a>
+    <span class="asin">B08KWG243P</span>
+  </div>
+</div>
+
+<h2><span class="n">2</span>Which port gets what</h2>
+<p class="sub">The 16-inch and the 14-inch, each seen from both sides.</p>
+<div class="card ports">
+<svg viewBox="0 0 1000 470" role="img" aria-label="Port map of both MacBook Pros">
+  <defs>
+    <style>
+      .body { fill: #2C323A; stroke: #4A525D; stroke-width: 2; }
+      .port { fill: #12161C; stroke: #6B7480; stroke-width: 1.5; }
+      .t { fill: #EDEFF2; font: 600 16px -apple-system, Helvetica, Arial, sans-serif; }
+      .d { fill: #9AA3AE; font: 14px -apple-system, Helvetica, Arial, sans-serif; }
+      .a { fill: #E8A64B; font: 700 14px -apple-system, Helvetica, Arial, sans-serif; }
+      .g { fill: #34D399; font: 700 14px -apple-system, Helvetica, Arial, sans-serif; }
+      .lead { stroke: #E8A64B; stroke-width: 2; fill: none; }
+      .leadg { stroke: #34D399; stroke-width: 2; fill: none; stroke-dasharray: 5 4; }
+      .leadd { stroke: #6B7480; stroke-width: 1.5; fill: none; }
+    </style>
+  </defs>
+
+  <!-- 16-inch -->
+  <text class="t" x="20" y="30">MacBook Pro 16" M1 Pro · the sender</text>
+  <text class="d" x="460" y="60" text-anchor="end">Left side</text>
+  <rect class="body" x="20" y="72" width="440" height="30" rx="8"/>
+  <rect class="port" x="50" y="80" width="34" height="14" rx="4"/>
+  <rect class="port" x="110" y="80" width="26" height="14" rx="7"/>
+  <rect class="port" x="150" y="80" width="26" height="14" rx="7"/>
+  <circle class="port" cx="420" cy="87" r="6"/>
+  <path class="leadd" d="M67 72 V66"/><text class="d" x="40" y="60">MagSafe: power</text>
+  <path class="lead" d="M123 102 V170"/><text class="a" x="90" y="188">Thunderbolt cable → 14"</text>
+  <path class="lead" d="M163 102 V130 H230"/><text class="a" x="236" y="135">USB-C dummy plug</text>
+
+  <text class="d" x="20" y="240">Right side</text>
+  <rect class="body" x="20" y="252" width="440" height="30" rx="8"/>
+  <rect class="port" x="60" y="259" width="38" height="16" rx="3"/>
+  <rect class="port" x="120" y="260" width="26" height="14" rx="7"/>
+  <rect class="port" x="380" y="261" width="44" height="12" rx="2"/>
+  <path class="leadg" d="M79 282 V320"/><text class="g" x="40" y="338">HDMI → CineView Nano (step 1)</text>
+  <path class="leadd" d="M133 282 V370"/><text class="d" x="110" y="388">Thunderbolt: free</text>
+  <path class="leadd" d="M402 282 V320"/><text class="d" x="350" y="338">SD card</text>
+
+  <!-- 14-inch -->
+  <text class="t" x="540" y="30">MacBook Pro 14" M1 Pro · the screen</text>
+  <text class="d" x="960" y="60" text-anchor="end">Left side</text>
+  <rect class="body" x="540" y="72" width="420" height="30" rx="8"/>
+  <rect class="port" x="570" y="80" width="34" height="14" rx="4"/>
+  <rect class="port" x="630" y="80" width="26" height="14" rx="7"/>
+  <rect class="port" x="670" y="80" width="26" height="14" rx="7"/>
+  <circle class="port" cx="920" cy="87" r="6"/>
+  <path class="leadd" d="M587 72 V66"/><text class="d" x="560" y="60">MagSafe: power</text>
+  <path class="lead" d="M643 102 V170"/><text class="a" x="610" y="188">Thunderbolt cable ← 16"</text>
+  <path class="leadd" d="M683 102 V130 H720"/><text class="d" x="726" y="135">Thunderbolt: free</text>
+
+  <text class="d" x="540" y="240">Right side</text>
+  <rect class="body" x="540" y="252" width="420" height="30" rx="8"/>
+  <rect class="port" x="580" y="259" width="38" height="16" rx="3"/>
+  <rect class="port" x="640" y="260" width="26" height="14" rx="7"/>
+  <rect class="port" x="880" y="261" width="44" height="12" rx="2"/>
+  <path class="leadd" d="M599 282 V320"/><text class="d" x="560" y="338">HDMI → BenQ (stays)</text>
+  <path class="leadd" d="M653 282 V370"/><text class="d" x="630" y="388">Thunderbolt: free</text>
+
+  <line x1="20" y1="430" x2="980" y2="430" stroke="#333A44"/>
+  <text class="d" x="20" y="458">An M1 Pro drives two external screens. On the 16-inch they are the dummy plug and, in step 1, the Nano on HDMI.</text>
+</svg>
+</div>
+
+<h2><span class="n">3</span>The signal path</h2>
+<p class="sub">From the dummy plug's screen on the 16-inch to the full screen on the 14-inch. All of it is in Swift.</p>
+<figure>
+  <img src="img/signal.jpg" alt="Six steps: dummy plug, ScreenCaptureKit, VideoToolbox HEVC encode, Thunderbolt Bridge, hardware decode, full screen at 2880 by 1800." width="1376" height="768" loading="lazy">
+</figure>
+
+<h2><span class="n">4</span>Step 1 needs nothing new: the CineView Nano</h2>
+<p class="sub">Before anything is bought, the Nano you own plays the dummy plug. The 16-inch's HDMI goes into the Nano, and CINEVIEW_VIEWER on the 14-inch shows the picture over the Nano's Wi-Fi. This proves the receiver first.</p>
+<figure>
+  <img src="img/nano.jpg" alt="The 16-inch MacBook Pro's HDMI into the Accsoon CineView Nano, whose Wi-Fi reaches the 14-inch MacBook Pro running CINEVIEW_VIEWER." width="1376" height="768" loading="lazy">
+</figure>
+
+<h2><span class="n">5</span>The holes, and how each is closed</h2>
+<div class="holes">
+  <div class="hole ok"><b>Two external screens</b><span>The M1 Pro drives two, which covers the dummy plus the Nano. A plain M1 drives only one, so the sender must be the M1 Pro.</span></div>
+  <div class="hole ok"><b>The dummy's resolution</b><span>The plug lists 2880 × 1800 and 2560 × 1600 at 60 Hz, both 16:10 like the 14-inch. A cheap plug with only 2560 × 1600 at 30 Hz was left out.</span></div>
+  <div class="hole ok"><b>The cable</b><span>Thunderbolt with the lightning mark, not FireWire, and not a charging cable. The bridge appears by itself, and the two apps find each other through Bonjour.</span></div>
+  <div class="hole ok"><b>Who "registers" the display</b><span>The dummy registers on the 16-inch. The 14-inch only shows a full-screen window, mouse pointer included.</span></div>
+  <div class="hole ok"><b>The Accsoon format</b><span>It sends packets with no resend. On a cable almost nothing is lost, and one receiver then shows both the Mac and the Nano.</span></div>
+  <div class="hole"><b>Never run yet</b><span>CINEVIEW_VIEWER has never been compiled or run. Step 1 is its first run.</span></div>
+  <div class="hole"><b>Sharpness</b><span>2880 × 1800 is shown at 3024 × 1890, which is 5 % larger and nearly sharp. On the day we try BetterDisplay for the exact size.</span></div>
+</div>
+
+<h2><span class="n">6</span>The order of work</h2>
+<ol class="steps">
+  <li><b>The Nano test</b><span>The 16-inch HDMI goes to the Nano, and CINEVIEW_VIEWER runs on the 14-inch. Nothing to buy.</span></li>
+  <li><b>Buy the two parts</b><span>The dummy plug and the Thunderbolt 4 cable, from the shopping list.</span></li>
+  <li><b>Mantra Display sender v1</b><span>On the 16-inch: grab the dummy's screen, encode it in hardware and send it in the Accsoon format over the cable. The receiver is CINEVIEW_VIEWER.</span></li>
+  <li><b>v2 and later</b><span>v2: the full native size in HEVC. v3: the 14-inch's keyboard and trackpad drive the 16-inch. v4: Wi-Fi instead of the cable.</span></li>
+</ol>
+
+<footer>
+  The repository: <a href="https://github.com/markoboskoauroville/MacBook_Pro_as_external_display">markoboskoauroville/MacBook_Pro_as_external_display</a> (PLAN.md, SHOPPING.md).<br>
+  The schematics were drawn with Nano Banana Pro in Gemini. Product pictures come from Amazon.de. The page was written on 21.10.2026.
+</footer>
+
+</div>
+<script src="https://speechifykeys.pages.dev/speechify-keys.js" defer></script>
+</body>
+</html>

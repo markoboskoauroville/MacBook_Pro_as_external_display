@@ -12,3 +12,8 @@ Every request from Marko, word for word, saved before any code.
 - "I'm buying everything on Amazon Germany, so search that site. Open the Google Chrome and find the right adapter. And include the link to add it in the description of the project. Make a website in the Cloudflare called it the same as this repository, just start with marko. On that page you're going to make a schematic look of the whole system and you're going to make direct links to Amazon Germany with that adapter. You need to present that file for schematic look. We already know how to use Nano Banana through the free account in mygermany. We did it yesterday. Make all schematics, make it very visual and find the right adapter and make a web page."
 - "google Chrome is open. You need to drive it with the cloud plug-in, and also you need to check when you build a page if it's working and how it looks like. Please do everything automatically without me"
 - "please at the top of the Redmi add the link to the future web page"
+- "please skip the step of adding the things to my card. I do it through a shopping list, which is available on the website itself with links to buy. Now just build the website and show me the website. That's it. We are closing the project"
+
+## Status (21.10.2026)
+
+All requests above are done: the repository is public; PLAN.md and SHOPPING.md are written; the page https://marko-macbook-pro-as-external-display.pages.dev is live, with three Nano Banana Pro schematics and the shopping list; nothing was put in any cart. The project is closed for now.
