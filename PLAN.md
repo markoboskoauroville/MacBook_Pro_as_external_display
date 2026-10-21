@@ -12,6 +12,58 @@ Written 21.10.2026. This is a plan only, and no code has been written.
   So the picture must come in as **data**: a video stream over a cable or the network, or a
   USB capture card that turns HDMI into a camera.
 
+## Marko's plan (21.10.2026), checked: this is the plan
+
+Marko's plan is way D below, with a dummy plug doing the job of the virtual display:
+
+    SENDER (MacBook Pro M1 Pro, BenQ on HDMI)
+      dummy display plug on a USB-C port -> macOS sees a real second screen
+      Mantra Display sender (Swift): ScreenCaptureKit grabs that screen, VideoToolbox encodes HEVC,
+      packets in the Accsoon format (MANTRA_MANIFEST modules/cineview-nano.md)
+         | Thunderbolt cable -> Thunderbolt Bridge, a private network between the two Macs
+    RECEIVER (the other MacBook Pro M1)
+      CINEVIEW_VIEWER (Swift), already written for the Nano: decodes and fills the screen
+
+**Why it is good:** the dummy plug removes the only fragile part of way D, the private API for
+a virtual display. macOS treats the plug as a real monitor, so windows, Mission Control and
+the mouse all work as they would on a real screen. With the Accsoon format, **one receiver
+shows both the Nano and the Mac**, and CINEVIEW_VIEWER is already written for the Nano.
+
+**The holes, and how each one is closed:**
+
+1. **The display limit of the sender's chip.** An M1 Pro drives two external screens, so the
+   BenQ plus the dummy is exactly its limit. A plain M1 (the 13-inch MacBook Pro or the
+   MacBook Air M1) drives **only one**, so the BenQ plus the dummy will not work on it.
+   → The sender is the M1 Pro, the Mac with the BenQ. Check which chip the other Mac has.
+2. **The plug's resolutions.** A cheap dummy offers only the resolutions in its EDID (its
+   built-in list of modes), usually 4K, 1440p and 1080p. If none matches the receiver's screen,
+   the picture is scaled and soft. → Buy a plug whose EDID lists the receiver's resolution
+   (13-inch: 2560 × 1600; 14-inch: 3024 × 1964), or use a HiDPI mode that is exactly half of
+   it. A software virtual display (0 €) can be given any size, so it stays the fallback.
+3. **The cable.** It must be a **Thunderbolt** cable with the lightning mark, 20 or 40 Gbps.
+   It is not FireWire, and a USB-C charging cable makes no network. The Thunderbolt Bridge
+   appears by itself with 169.254.x.x addresses, and the two apps find each other through
+   Bonjour.
+4. **The receiver does not "register as a display".** The dummy registers on the sender. The
+   receiver only shows a full-screen window with no menu bar, Dock or sleep. The sender must
+   include the mouse pointer in the stream.
+5. **The Accsoon format** sends packets with no resend and drops late frames. On Wi-Fi this
+   means torn frames. On a cable almost nothing is lost, so it is fine. The sender plays the
+   role of the Nano: it listens on TCP 8001 and sends UDP to port 8000.
+6. **CINEVIEW_VIEWER has never been compiled or run.** Its NOT TESTED list says so. It is
+   the receiver, so its first run is step 1.
+7. **The lag** is expected at about 30–50 ms (capture, encode, cable, decode, one frame).
+   That is fine for watching and for most work, and fine for typing with the sender's own
+   keyboard.
+
+**The cheapest way to a second screen**, from what Marko already has:
+
+| Way | Costs | Gives |
+|---|---|---|
+| A USB-C to HDMI adapter on the sender → **the Nano he owns** → Wi-Fi → CINEVIEW_VIEWER | about 10 € (0 € if an adapter is in the drawer) | a second screen at once, with no sender code. The Nano is the "dummy". Limits: 1080p, about 80–150 ms over Wi-Fi, and the receiver joins the Nano's Wi-Fi |
+| A software virtual display + Thunderbolt | 0 € (plus the cable if he has none) | any resolution, but a private Apple API that a macOS update can break |
+| **Marko's plan:** dummy plug + Thunderbolt | dummy about 8–15 €, Thunderbolt cable about 20–30 € | the best: real display, native sharp picture, lowest lag |
+
 ## The question that decides the way
 
 **Which machine sends its picture to the MacBook Pro?**
@@ -69,7 +121,19 @@ shows the picture.
 - Against: the most work. The virtual display uses a private Apple API that a macOS update
   can break.
 
-## The order of work
+## The order of work (Marko's plan)
+
+1. **Step 1: the receiver first, with the Nano.** The USB-C to HDMI adapter goes from the
+   sender to the Nano, and the receiver runs CINEVIEW_VIEWER. This proves the receiver and the
+   Accsoon format with no sender code, and it is already a second screen at 1080p.
+2. **Step 2: Mantra Display sender v1.** Buy the dummy plug and a Thunderbolt cable if he has
+   none. The sender grabs the dummy screen and speaks the Accsoon format over the cable, and
+   CINEVIEW_VIEWER receives it by the Mac's address instead of 10.0.0.1. v2 adds HEVC at the
+   receiver's native resolution, v3 adds the receiver's keyboard and trackpad, v4 adds
+   Wi-Fi.
+3. Each version is signed, put in the star and tested as below.
+
+## The other order (before Marko's plan; kept for the choices)
 
 1. **Step 0: Marko answers** the two questions: which source, and mirror or extend.
 2. **Step 1: a five-minute test** with way A (for a Mac source) or way C (for a PC source).
