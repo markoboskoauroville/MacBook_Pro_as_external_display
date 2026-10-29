@@ -17,3 +17,9 @@ Every request from Marko, word for word, saved before any code.
 ## Status (21.10.2026)
 
 All requests above are done: the repository is public; PLAN.md and SHOPPING.md are written; the page https://marko-macbook-pro-as-external-display.pages.dev is live, with three Nano Banana Pro schematics and the shopping list; nothing was put in any cart. The project is closed for now.
+
+## 29.10.2026 (a GitHub deploy workflow)
+
+> Yes, any repository which doesn't have a deploy workflow should be added, yes.
+
+**Status:** done 29.10.2026: .github/workflows/deploy-pages.yml publishes site to marko-macbook-pro-as-external-display.pages.dev on every push to main.
